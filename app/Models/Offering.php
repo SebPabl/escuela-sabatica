@@ -11,7 +11,7 @@ class Offering extends Model
 {
     protected $table = 'offerings';
 
-    public function courses(): HasMany
+    public function courses()
     {
         return $this->hasMany(Course::class);
     }

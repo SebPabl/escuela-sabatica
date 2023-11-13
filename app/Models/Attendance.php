@@ -11,7 +11,7 @@ class Attendance extends Model
 {
     protected $table = 'attendances';
 
-    public function students(): BelongsTo
+    public function students()
     {
         return $this->belongsTo(Student::class);
     }

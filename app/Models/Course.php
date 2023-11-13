@@ -12,19 +12,20 @@ use App\Models\Offering;
 
 class Course extends Model
 {
+    protected $fillable = ['user_id', 'name'];
     protected $table = 'courses';
 
-    public function user(): BelongsTo
+    public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
 
-    public function students(): HasMany
+    public function students()
     {
-        return $this->hasMany(Student::class);
+        return $this->hasMany(Student::class, 'course_id');
     }
 
-    public function offerings(): BelongsTo
+    public function offerings()
     {
         return $this->belongsToMany(Offering::class);
     }
