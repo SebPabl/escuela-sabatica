@@ -1,0 +1,64 @@
+@extends('adminlte::page')
+
+@section('title', 'Usuarios')
+
+@section('content_header')
+    <h1>Student</h1>
+@stop
+
+@section('content')
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">Crear Estudiante</div>
+
+                    <div class="card-body">
+                        <form method="POST" action="{{ route('admin.students.store') }}">
+                            @csrf
+
+                            <div class="form-group">
+                                <label for="course_id">Curso:</label>
+                                <select name="course_id" id="course_id" class="form-control">
+                                    <option value="">Seleccionar Curso</option>
+                                    @foreach($courses as $course)
+                                        <option value="{{ $course->id }}">{{ $course->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="name">Nombre:</label>
+                                <input type="text" name="name" id="name" class="form-control" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="lastname">Apellido:</label>
+                                <input type="text" name="lastname" id="lastname" class="form-control" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="age">Edad:</label>
+                                <input type="number" name="age" id="age" class="form-control" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="address">Dirección:</label>
+                                <input type="text" name="address" id="address" class="form-control">
+                            </div>
+
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">Crear Estudiante</button>
+                                <a href="{{ route('admin.students.index') }}" class="btn btn-secondary">Cancelar</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@stop
+
+@section('css')
+    <link rel="stylesheet" href="/css/admin_custom.css">
+@stop
