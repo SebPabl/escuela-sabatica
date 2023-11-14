@@ -10,12 +10,13 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
+use Spatie\Permission\Traits\HasRoles;
 use Laravel\Sanctum\HasApiTokens;
 use App\Models\Course;
-use App\Models\Role;
 
 class User extends Authenticatable
 {
+    use HasRoles;
     use HasApiTokens;
     use HasFactory;
     use HasProfilePhoto;
@@ -31,7 +32,6 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'role_id'
     ];
 
     /**
@@ -67,10 +67,5 @@ class User extends Authenticatable
     public function courses()
     {
         return $this->hasOne(Course::class);
-    }
-
-    public function role()
-    {
-        return $this->belongsTo(Role::class, 'role_id');
     }
 }
