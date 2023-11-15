@@ -1,11 +1,6 @@
 @extends('adminlte::page')
 
 @section('title', 'Usuarios')
-
-@section('content_header')
-    <h1>Student</h1>
-@stop
-
 @section('content')
     <div class="container">
         <div class="row justify-content-center">

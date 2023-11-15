@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admin\StudentController;
 use App\Http\Controllers\admin\CourseController;
 use App\Http\Controllers\admin\UserController;
+use App\Http\Controllers\admin\OfferingController;
+use App\Http\Controllers\admin\AttendanceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -78,6 +80,37 @@ Route::get('/admin.users.edit', function () {
     return view('admin.users.edit');
 })->name('admin.users.edit');
 
+Route::get('/admin.offerings.index', function () {
+    return view('admin.offerings.index');
+})->name('admin.offerings.index');
+
+Route::get('/admin.offerings.create', function () {
+    return view('admin.offerings.create');
+})->name('admin.offerings.create');
+
+Route::get('/admin.offerings.show', function () {
+    return view('admin.offerings.show');
+})->name('admin.offerings.show');
+
+Route::get('/admin.offerings.edit', function () {
+    return view('admin.offerings.edit');
+})->name('admin.offerings.edit');
+
+Route::get('/admin.attendances.index', function () {
+    return view('admin.attendances.index');
+})->name('admin.attendances.index');
+
+Route::get('/admin.attendances.create', function () {
+    return view('admin.attendances.create');
+})->name('admin.attendances.create');
+
+Route::get('/admin.attendances.show', function () {
+    return view('admin.attendances.show');
+})->name('admin.attendances.show');
+
+Route::get('/admin.attendances.edit', function () {
+    return view('admin.attendances.edit');
+})->name('admin.attendances.edit');
 
 Route::resource('admin/student', StudentController::class)->names([
     'index' => 'admin.students.index',
@@ -107,4 +140,24 @@ Route::resource('admin/user', UserController::class)->names([
     'edit' => 'admin.users.edit',
     'update' => 'admin.users.update',
     'destroy' => 'admin.users.destroy',
+]);
+
+Route::resource('admin/offering', OfferingController::class)->names([
+    'index' => 'admin.offerings.index',
+    'create' => 'admin.offerings.create',
+    'store' => 'admin.offerings.store',
+    'show' => 'admin.offerings.show',
+    'edit' => 'admin.offerings.edit',
+    'update' => 'admin.offerings.update',
+    'destroy' => 'admin.offerings.destroy',
+]);
+
+Route::resource('admin/attendance', AttendanceController::class)->names([
+    'index' => 'admin.attendances.index',
+    'create' => 'admin.attendances.create',
+    'store' => 'admin.attendances.store',
+    'show' => 'admin.attendances.show',
+    'edit' => 'admin.attendances.edit',
+    'update' => 'admin.attendances.update',
+    'destroy' => 'admin.attendances.destroy',
 ]);

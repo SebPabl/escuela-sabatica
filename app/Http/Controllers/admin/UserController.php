@@ -74,6 +74,8 @@ class UserController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email,' . $user->id,
             'password' => 'nullable|string|min:8',
+            'roles' => 'required|array|min:1', // Asegura al menos un rol seleccionado
+            'roles.*' => 'exists:roles,id', // Verifica que los roles existan en la tabla roles
         ]);
 
         $user->name = $request->input('name');
@@ -83,13 +85,14 @@ class UserController extends Controller
             $user->password = Hash::make($request->input('password'));
         }
 
-        $user->syncRoles($request->input('roles'));
+        // Obtener el rol seleccionado y asignarlo al usuario
+        $selectedRole = Role::findOrFail($request->input('roles')[0]); // Obtener el primer rol seleccionado
+        $user->syncRoles([$selectedRole->id]); // Asignar solo un rol al usuario
 
         $user->save();
 
         return redirect()->route('admin.users.show', $id)->with('success', 'Usuario actualizado correctamente.');
     }
-
     public function destroy($id)
     {
         $user = User::find($id);
