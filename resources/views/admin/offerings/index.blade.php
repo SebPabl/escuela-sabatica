@@ -1,44 +1,44 @@
 @extends('adminlte::page')
 
-@section('title', 'Dashboard')
+@section('title', 'Offering')
+
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-10">
                 <div class="card">
-                    <div class="card-header">Lista de Cursos 
-                    @can('courses.create')    
-                    <a href="{{ route('admin.courses.create') }}" class="btn btn-primary btn-sm float-right">Crear Cursos</a></div>
+                    @can('offerings.create')
+                    <div class="card-header">Lista de Ofertas <a href="{{ route('admin.offerings.create') }}" class="btn btn-primary btn-sm float-right">Crear Oferta</a></div>
                     @endcan()
                     <div class="card-body">
-                        @if(optional($courses)->count() > 0)
+                        @if($offerings->count() > 0)
                             <table class="table">
                                 <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th>Nombre</th>
-                                        <th>Usuario</th>
+                                        <th>Oferta</th>
+                                        <th>Clase</th>
                                         <th>Fecha de Creación</th>
                                         <th>Fecha de Actualización</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach($courses as $course)
+                                    @foreach($offerings as $offering)
                                         <tr>
-                                            <td>{{ $course->id }}</td>
-                                            <td>{{ $course->name }}</td>
-                                            <td>{{ $course->user ? $course->user->name : 'N/A' }}</td>
-                                            <td>{{ $course->created_at }}</td>
-                                            <td>{{ $course->updated_at }}</td>
+                                            <td>{{ $offering->id }}</td>
+                                            <td>{{ $offering->offering }}</td>
+                                            <td>{{ $offering->course->name }}</td>
+                                            <td>{{ $offering->created_at }}</td>
+                                            <td>{{ $offering->updated_at }}</td>
                                             <td>
-                                                <a href="{{ route('admin.courses.show', $course->id) }}" class="btn btn-info btn-sm">Ver Detalles</a>
+                                                <a href="{{ route('admin.offerings.show', $offering->id) }}" class="btn btn-info btn-sm">Ver Detalles</a>
                                             </td>
                                         </tr>
                                     @endforeach
                                 </tbody>
                             </table>
                         @else
-                            <p>No hay cursos registrados.</p>
+                            <p>No hay ofertas registradas.</p>
                         @endif
                     </div>
                 </div>

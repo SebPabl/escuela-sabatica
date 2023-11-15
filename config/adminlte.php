@@ -326,6 +326,16 @@ return [
             'route' => 'admin.courses.index',
             'icon' => 'far fa-fw fa-file',
         ],
+        [
+            'text' => 'Ofrendas',
+            'route' => 'admin.offerings.index',
+            'icon' => 'far fa-fw fa-file',
+        ],
+        [
+            'text' => 'Assistencias',
+            'route' => 'admin.attendances.index',
+            'icon' => 'far fa-fw fa-file',
+        ],
         ['header' => 'account_settings'],
         [
             'text' => 'profile',

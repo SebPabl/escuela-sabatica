@@ -9,6 +9,12 @@ use App\Models\Student;
 
 class Attendance extends Model
 {
+    protected $fillable = [
+        'student_id',
+        'date',
+        'state',
+    ];
+
     protected $table = 'attendances';
 
     public function students()

@@ -1,11 +1,6 @@
 @extends('adminlte::page')
 
 @section('title', 'Dashboard')
-
-@section('content_header')
-    <h1>Dashboard</h1>
-@stop
-
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
@@ -24,19 +19,22 @@
 
                         <div class="mt-3">
                             <a href="{{ route('admin.courses.index') }}" class="btn btn-primary">Volver a la Lista</a>
+                            @can('courses.edit')
                             <a href="{{ route('admin.courses.edit', $course->id) }}" class="btn btn-warning">Editar</a>
+                            @endcan()
+                            @can('courses.destroy')
                             <form action="{{ route('admin.courses.destroy', $course->id) }}" method="POST" class="d-inline">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger" onclick="return confirm('¿Estás seguro de que deseas eliminar este estudiante?')">Eliminar</button>
                             </form>
+                            @endcan()
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
 @stop
 
 @section('css')

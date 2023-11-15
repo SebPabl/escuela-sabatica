@@ -1,18 +1,14 @@
 @extends('adminlte::page')
 
 @section('title', 'Usuarios')
-
-@section('content_header')
-    <h1>Student</h1>
-@stop
-
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-10">
                 <div class="card">
+                    @can('students.create')
                     <div class="card-header">Lista de Estudiantes <a href="{{ route('admin.students.create') }}" class="btn btn-primary btn-sm float-right">Crear Estudiante</a></div>
-
+                    @endcan()
                     <div class="card-body">
                         @if(count($students) > 0)
                             <table class="table">
