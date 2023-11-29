@@ -7,12 +7,12 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Detalles de la Oferta</div>
+                    <div class="card-header">Detalles de la Ofrenda</div>
 
                     <div class="card-body">
                         <ul class="list-group">
                             <li class="list-group-item"><strong>ID:</strong> {{ $offering->id }}</li>
-                            <li class="list-group-item"><strong>Oferta:</strong> {{ $offering->offering }}</li>
+                            <li class="list-group-item"><strong>Ofrenda:</strong> {{ $offering->offering }}</li>
                             <li class="list-group-item"><strong>Clase:</strong> {{ $offering->course->name ?? 'N/A' }}</li>
                             <li class="list-group-item"><strong>Fecha de Creación:</strong> {{ $offering->created_at }}</li>
                             <li class="list-group-item"><strong>Fecha de Actualización:</strong> {{ $offering->updated_at }}</li>
