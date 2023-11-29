@@ -8,7 +8,7 @@
             <div class="col-md-10">
                 <div class="card">
                     @can('offerings.create')
-                    <div class="card-header">Lista de Ofertas <a href="{{ route('admin.offerings.create') }}" class="btn btn-primary btn-sm float-right">Crear Oferta</a></div>
+                    <div class="card-header">Lista de Ofrendas <a href="{{ route('admin.offerings.create') }}" class="btn btn-primary btn-sm float-right">Registrar Ofrenda</a></div>
                     @endcan()
                     <div class="card-body">
                         @if($offerings->count() > 0)
@@ -16,7 +16,7 @@
                                 <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th>Oferta</th>
+                                        <th>Ofrenda</th>
                                         <th>Clase</th>
                                         <th>Fecha de Creación</th>
                                         <th>Fecha de Actualización</th>
@@ -38,7 +38,7 @@
                                 </tbody>
                             </table>
                         @else
-                            <p>No hay ofertas registradas.</p>
+                            <p>No hay ofrendas registradas.</p>
                         @endif
                     </div>
                 </div>

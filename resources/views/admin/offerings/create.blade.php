@@ -7,7 +7,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Crear Nueva Oferta</div>
+                    <div class="card-header">Crear Nueva Ofrenda</div>
 
                     <div class="card-body">
                         <form method="POST" action="{{ route('admin.offerings.store') }}">
@@ -24,12 +24,12 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="offering">Oferta:</label>
+                                <label for="offering">Ofrenda:</label>
                                 <input type="text" name="offering" id="offering" class="form-control" value="{{ old('offering') }}" required>
                             </div>
 
                             <div class="form-group">
-                                <button type="submit" class="btn btn-primary">Crear Oferta</button>
+                                <button type="submit" class="btn btn-primary">Registrar Ofrenda</button>
                                 <a href="{{ route('admin.offerings.index') }}" class="btn btn-secondary">Cancelar</a>
                             </div>
                         </form>
